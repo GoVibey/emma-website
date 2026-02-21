@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ── Emma Design System — Custom Theme ── */
+@theme {
+  /* Primary — Warm coral-rose */
+  --color-primary-50:  #FFF5F5;
+  --color-primary-100: #FFE3E3;
+  --color-primary-200: #FFC9C9;
+  --color-primary-300: #FFA8A8;
+  --color-primary-400: #FF8787;
+  --color-primary-500: #E8636F;
+  --color-primary-600: #D4404D;
+  --color-primary-700: #B52A36;
+  --color-primary-800: #8E1F28;
+  --color-primary-900: #6B171E;
+
+  /* Secondary — Warm gold */
+  --color-secondary-50:  #FFFBEB;
+  --color-secondary-100: #FEF3C7;
+  --color-secondary-200: #FDE68A;
+  --color-secondary-300: #FCD34D;
+  --color-secondary-400: #FBBF24;
+  --color-secondary-500: #F59E0B;
+  --color-secondary-600: #D97706;
+  --color-secondary-700: #B45309;
+
+  /* Accent — Soft teal */
+  --color-accent-50:  #F0FDFA;
+  --color-accent-100: #CCFBF1;
+  --color-accent-200: #99F6E4;
+  --color-accent-300: #5EEAD4;
+  --color-accent-400: #2DD4BF;
+  --color-accent-500: #14B8A6;
+  --color-accent-600: #0D9488;
+  --color-accent-700: #0F766E;
+
+  /* Fonts */
+  --font-display: var(--font-dm-serif);
+  --font-body: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-stone-50 text-stone-900 antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  background-color: #E8636F30;
+  color: #6B171E;
+}
+
+/* Range slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #E8636F;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(232,99,111,0.3);
+}
