@@ -1,62 +1,45 @@
 import Link from 'next/link'
-import { Youtube, Instagram, Mail } from 'lucide-react'
+import { Youtube } from 'lucide-react'
 
 const footerLinks = {
-  learn: [
-    { label: 'Courses', href: '/courses' },
+  main: [
     { label: 'Community', href: '/community' },
-    { label: 'YouTube', href: '/youtube' },
-    { label: 'Free Resources', href: '/resources' },
-  ],
-  company: [
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Resources', href: '/resources' },
+    { label: 'Blog', href: '/resources/blog' },
   ],
 }
 
-const socialLinks = [
-  { icon: Youtube, href: '#', label: 'YouTube' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Mail, href: '#', label: 'Email' },
-]
-
 export function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-300">
+    <footer className="bg-primary-900 text-white/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="text-2xl font-bold text-white" style={{ fontFamily: 'var(--font-display)' }}>
-              Emma
+              Emma Weil
             </Link>
-            <p className="mt-3 text-sm text-stone-400 max-w-sm leading-relaxed">
-              Empowering learners through education, community, and growth.
-              Join thousands of students on their journey.
+            <p className="mt-3 text-sm text-white/50 max-w-sm leading-relaxed">
+              A community for survivors, fighters, and supporters. You don&apos;t have to navigate cancer alone.
             </p>
-            <div className="mt-6 flex items-center gap-3">
-              {socialLinks.map(social => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-lg bg-stone-800 hover:bg-stone-700 flex items-center justify-center transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="h-4 w-4 text-stone-400" />
-                </a>
-              ))}
+            <div className="mt-6">
+              <a
+                href="https://www.youtube.com/@WeilEmma"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors inline-flex"
+                aria-label="YouTube"
+              >
+                <Youtube className="h-4 w-4 text-white/60" />
+              </a>
             </div>
           </div>
 
-          {/* Learn */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Learn</h3>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Explore</h3>
             <ul className="space-y-3">
-              {footerLinks.learn.map(link => (
+              {footerLinks.main.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-stone-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/50 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -64,25 +47,30 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Policies</h3>
             <ul className="space-y-3">
-              {footerLinks.company.map(link => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-stone-400 hover:text-white transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/policies" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Terms &amp; Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/policies#health-disclaimer" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Health Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/policies#content-use" className="text-sm text-white/50 hover:text-white transition-colors">
+                  Content Use Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-stone-500">© {new Date().getFullYear()} Emma. All rights reserved.</p>
-          <p className="text-xs text-stone-500">Made with ❤️ for learners everywhere</p>
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/30">© {new Date().getFullYear()} Emma Weil. All rights reserved.</p>
         </div>
       </div>
     </footer>

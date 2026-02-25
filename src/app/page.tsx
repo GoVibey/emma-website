@@ -1,10 +1,11 @@
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { HeroSection } from '@/components/sections/hero'
+import { ProblemSection } from '@/components/sections/problem'
+import { ShiftSection } from '@/components/sections/shift'
+import { MeetEmmaSection } from '@/components/sections/meet-galit'
+import { PillarsSection } from '@/components/sections/pillars'
 import { FeaturesSection } from '@/components/sections/features'
-import { CoursesPreview } from '@/components/sections/courses-preview'
-import { CommunitySection } from '@/components/sections/community'
-import { TestimonialsSection } from '@/components/sections/testimonials'
 import { CTASection } from '@/components/sections/cta'
 
 export default function HomePage() {
@@ -13,10 +14,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <HeroSection />
+        <ProblemSection />
+        <ShiftSection />
+        <MeetEmmaSection />
+        <PillarsSection />
         <FeaturesSection />
-        <CoursesPreview />
-        <CommunitySection />
-        <TestimonialsSection />
         <CTASection />
       </main>
       <Footer />

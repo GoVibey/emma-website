@@ -1,4 +1,4 @@
-import { forwardRef, type ButtonHTMLAttributes } from 'react'
+import { cloneElement, forwardRef, isValidElement, type ButtonHTMLAttributes, type ReactElement } from 'react'
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'accent'
 type Size = 'sm' | 'md' | 'lg'
@@ -10,10 +10,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<Variant, string> = {
-  primary:   'bg-primary-500 hover:bg-primary-600 text-white shadow-md hover:shadow-lg',
+  primary:   'bg-primary-500 hover:bg-primary-600 text-white shadow-md hover:shadow-lg shadow-primary-500/20',
   secondary: 'bg-white hover:bg-stone-50 text-stone-800 border border-stone-200 shadow-sm hover:shadow-md',
-  ghost:     'text-stone-600 hover:text-stone-900 hover:bg-stone-100',
-  accent:    'bg-accent-500 hover:bg-accent-600 text-white shadow-md hover:shadow-lg',
+  ghost:     'text-stone-600 hover:text-stone-900 hover:bg-white/60',
+  accent:    'bg-accent-500 hover:bg-accent-600 text-white shadow-md hover:shadow-lg shadow-accent-500/20',
 }
 
 const sizeStyles: Record<Size, string> = {
@@ -23,11 +23,20 @@ const sizeStyles: Record<Size, string> = {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className = '', variant = 'primary', size = 'md', children, ...props }, ref) => {
+  ({ className = '', variant = 'primary', size = 'md', asChild = false, children, ...props }, ref) => {
+    const classes = `inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
+
+    if (asChild && isValidElement(children)) {
+      const child = children as ReactElement<{ className?: string }>
+      return cloneElement(child, {
+        className: `${classes} ${child.props.className ?? ''}`.trim(),
+      })
+    }
+
     return (
       <button
         ref={ref}
-        className={`inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+        className={classes}
         {...props}
       >
         {children}

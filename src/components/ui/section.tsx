@@ -9,7 +9,7 @@ export function Section({ children, className = '', dark = false, id }: SectionP
   return (
     <section
       id={id}
-      className={`py-16 sm:py-20 lg:py-24 ${dark ? 'bg-stone-900 text-white' : ''} ${className}`}
+      className={`py-16 sm:py-20 lg:py-24 ${dark ? 'bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white' : ''} ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}
@@ -29,7 +29,7 @@ export function SectionHeader({ badge, title, description, centered = true }: Se
   return (
     <div className={`mb-12 sm:mb-16 ${centered ? 'text-center' : ''}`}>
       {badge && (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700 mb-4">
+        <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold bg-primary-100/80 text-primary-600 backdrop-blur-sm border border-primary-200/50 mb-4">
           {badge}
         </span>
       )}

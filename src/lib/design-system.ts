@@ -1,34 +1,48 @@
 /**
- * Emma Website — Design System
+ * Emma Website - Design System
  * 
- * Brand: Modern, educational, empowering
- * Audience: Learners, community members, course students
+ * Brand: Light blue + white, glassmorphism, clean, hopeful
+ * Audience: Cancer survivors, fighters, supporters
  * 
  * Design Principles:
- * 1. Warm & Approachable — Not corporate. Feels like talking to a mentor.
- * 2. Clean & Focused — Generous whitespace, clear hierarchy, no clutter.
- * 3. Empowering — Bold headlines, active voice, progress-oriented.
- * 4. Modern — Smooth animations, rounded corners, soft shadows.
+ * 1. Light & Airy - White backgrounds, soft blue gradients, lots of whitespace.
+ * 2. Glassmorphism - Frosted glass cards, translucent surfaces, blur effects.
+ * 3. Empowering - Bold headlines, clear hierarchy, hope without naivety.
+ * 4. Modern - Smooth animations, rounded corners, soft colored shadows.
  */
 
-/* ── Color Palette ── */
+/* -- Color Palette - Light blue + white, glassmorphism -- */
 export const colors = {
-  // Primary — Warm coral-rose (empowering, energetic)
+  // Primary - Light blue (clean, trust, calm)
   primary: {
-    50:  '#FFF5F5',
-    100: '#FFE3E3',
-    200: '#FFC9C9',
-    300: '#FFA8A8',
-    400: '#FF8787',
-    500: '#E8636F',  // Main brand color
-    600: '#D4404D',
-    700: '#B52A36',
-    800: '#8E1F28',
-    900: '#6B171E',
+    50:  '#F0F7FF',
+    100: '#E0EFFF',
+    200: '#BAD8FE',
+    300: '#8ABDFC',
+    400: '#5A9FF8',
+    500: '#3A85E8',
+    600: '#1B5EB0',  // Main brand color
+    700: '#174D91',
+    800: '#133D73',
+    900: '#0F2D55',
   },
 
-  // Secondary — Warm gold (education, achievement, warmth)
+  // Secondary - Soft teal-green (health, growth)
   secondary: {
+    50:  '#ECFDF5',
+    100: '#D1FAE5',
+    200: '#A7F3D0',
+    300: '#6EE7B7',
+    400: '#34D399',
+    500: '#10B981',
+    600: '#059669',
+    700: '#047857',
+    800: '#065F46',
+    900: '#064E3B',
+  },
+
+  // Accent - Warm amber/butterfly orange (hope, transformation)
+  accent: {
     50:  '#FFFBEB',
     100: '#FEF3C7',
     200: '#FDE68A',
@@ -41,21 +55,7 @@ export const colors = {
     900: '#78350F',
   },
 
-  // Accent — Soft teal (calm, trust, growth)
-  accent: {
-    50:  '#F0FDFA',
-    100: '#CCFBF1',
-    200: '#99F6E4',
-    300: '#5EEAD4',
-    400: '#2DD4BF',
-    500: '#14B8A6',
-    600: '#0D9488',
-    700: '#0F766E',
-    800: '#115E59',
-    900: '#134E4A',
-  },
-
-  // Neutrals — Warm grays (not cold/corporate)
+  // Neutrals - Warm grays (not cold/corporate)
   neutral: {
     50:  '#FAFAF9',
     100: '#F5F5F4',
@@ -89,9 +89,9 @@ export const colors = {
 export const typography = {
   // Font families (loaded via next/font)
   fontFamily: {
-    display: 'var(--font-display)',   // DM Serif Display — headlines
-    body:    'var(--font-body)',      // Inter — body text
-    mono:    'var(--font-mono)',      // JetBrains Mono — code/numbers
+    display: 'var(--font-display)',   // DM Serif Display - headlines
+    body:    'var(--font-body)',      // Inter - body text
+    mono:    'var(--font-mono)',      // JetBrains Mono - code/numbers
   },
 
   // Font sizes (Tailwind classes)
@@ -121,9 +121,9 @@ export const spacing = {
 
 /* ── Border Radius ── */
 export const radius = {
-  sm:   'rounded-lg',      // 8px — buttons, inputs
-  md:   'rounded-xl',      // 12px — cards
-  lg:   'rounded-2xl',     // 16px — hero cards, images
+  sm:   'rounded-lg',      // 8px - buttons, inputs
+  md:   'rounded-xl',      // 12px - cards
+  lg:   'rounded-2xl',     // 16px - hero cards, images
   full: 'rounded-full',    // pills, avatars
 } as const
 

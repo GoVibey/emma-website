@@ -2,46 +2,39 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { BookOpen, Users, Video, Award, Sparkles, MessageCircle } from 'lucide-react'
-import { Section, SectionHeader } from '@/components/ui/section'
-import { Card } from '@/components/ui/card'
+import { Users, Video, BookOpen, FolderOpen, Youtube, Heart } from 'lucide-react'
+import { SectionHeader } from '@/components/ui/section'
 
 const features = [
   {
-    icon: BookOpen,
-    title: 'Expert-Led Courses',
-    description: 'Structured programs designed to take you from beginner to confident practitioner. Learn at your own pace.',
-    color: 'bg-primary-100 text-primary-600',
-  },
-  {
     icon: Users,
-    title: 'Skool Community',
-    description: 'Connect with fellow learners, share progress, and get support from a community that genuinely cares.',
-    color: 'bg-accent-100 text-accent-600',
+    title: 'Private Community',
+    description: 'No noise, no algorithms — a focused space where every member truly understands what you\'re going through.',
   },
   {
     icon: Video,
+    title: 'Weekly Live Calls with Emma',
+    description: 'Ask anything. Share wins. Get direct guidance. Recordings available if you miss one.',
+  },
+  {
+    icon: BookOpen,
+    title: 'Structured Learning Modules',
+    description: 'Root cause science, hormonal balance, immune optimization, detoxification — each module is self-contained and self-paced.',
+  },
+  {
+    icon: FolderOpen,
+    title: 'Curated Resource Library',
+    description: 'Checklists, guides, recipes, and exercise plans. Practical tools you can use today.',
+  },
+  {
+    icon: Youtube,
     title: 'Free YouTube Content',
-    description: 'Hundreds of free videos covering foundations, tips, and real-world applications. Start learning today.',
-    color: 'bg-secondary-100 text-secondary-600',
+    description: 'Hundreds of videos breaking down the science into language anyone can understand. New content every week.',
   },
   {
-    icon: MessageCircle,
-    title: 'Live Q&A Sessions',
-    description: 'Weekly live sessions where you can ask questions, get feedback, and learn from others\' challenges.',
-    color: 'bg-purple-100 text-purple-600',
-  },
-  {
-    icon: Award,
-    title: 'Certificates',
-    description: 'Earn certificates of completion to showcase your new skills and commitment to growth.',
-    color: 'bg-blue-100 text-blue-600',
-  },
-  {
-    icon: Sparkles,
-    title: 'Practical Exercises',
-    description: 'Every module includes hands-on exercises and projects. Learning by doing is how real change happens.',
-    color: 'bg-emerald-100 text-emerald-600',
+    icon: Heart,
+    title: 'Emotional Support',
+    description: 'Honesty over toxic positivity. A place where "I\'m scared" is a valid sentence, and you\'ll never hear "just stay positive."',
   },
 ]
 
@@ -50,31 +43,36 @@ export function FeaturesSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <Section id="features">
-      <SectionHeader
-        badge="Why Emma?"
-        title="Everything you need to grow"
-        description="A complete learning ecosystem designed to support your journey from curiosity to mastery."
-      />
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-primary-50/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader
+          badge=""
+          title="Everything you need. Nothing you don't."
+          description="No fluff. No miracle cures. Just science-backed guidance, real human connection, and a path forward."
+        />
 
-      <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {features.map((feature, i) => (
-          <motion.div
-            key={feature.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-          >
-            <Card hover className="h-full">
-              <div className={`w-11 h-11 rounded-lg ${feature.color} flex items-center justify-center mb-4`}>
-                <feature.icon className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-semibold text-stone-900 mb-2">{feature.title}</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">{feature.description}</p>
-            </Card>
-          </motion.div>
-        ))}
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, i) => {
+            const Icon = feature.icon
+            return (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <div className="glass rounded-2xl p-6 shadow-md shadow-primary-500/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full">
+                  <div className="w-11 h-11 rounded-xl bg-primary-100 flex items-center justify-center mb-4">
+                    <Icon className="h-5 w-5 text-primary-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-primary-900 mb-1">{feature.title}</h3>
+                  <p className="text-sm text-stone-500 leading-relaxed">{feature.description}</p>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
-    </Section>
+    </section>
   )
 }

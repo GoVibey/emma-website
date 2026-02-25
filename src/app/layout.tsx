@@ -16,11 +16,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Emma — Empowering Education',
-  description: 'Join Emma\'s community of learners. Online courses, live workshops, and a thriving Skool community to help you grow.',
+  title: 'Emma - You Don\'t Have to Navigate Cancer Alone',
+  description: 'Join a community of survivors, fighters, and supporters who understand exactly what you\'re going through - led by someone who\'s dedicated her life to cancer prevention.',
+  icons: {
+    icon: '/icon.svg',
+  },
   openGraph: {
-    title: 'Emma — Empowering Education',
-    description: 'Online courses, live workshops, and a thriving community.',
+    title: 'Emma - You Don\'t Have to Navigate Cancer Alone',
+    description: 'A community of cancer survivors, fighters, and supporters.',
     type: 'website',
   },
 }
